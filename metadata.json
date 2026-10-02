@@ -1,0 +1,6 @@
+{
+  "name": "Patas Vivas · Cuidadores de Animais",
+  "description": "Conheça o Patas Vivas, acompanhe as histórias dos animais acolhidos e ajude a manter o cuidado diário, alimentação, proteção e tratamento de quem precisa.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
