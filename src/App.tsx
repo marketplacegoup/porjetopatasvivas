@@ -4,7 +4,7 @@ import { DonationModal } from './components/DonationModal';
 import { CheckoutModal } from './components/CheckoutModal';
 import { ExitIntentModal } from './components/ExitIntentModal';
 import { ConfigPage } from './components/ConfigPage';
-import { Settings, ArrowLeft } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 
 export default function App() {
   const [selectedAmount, setSelectedAmount] = useState<number>(10000); // Default R$ 100
@@ -56,20 +56,9 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen">
-      {/* Botão Flutuante de Configurações (Discreto no canto superior direito) */}
-      <div className="fixed right-3 top-3 z-50">
-        {currentPage === 'campaign' ? (
-          <button
-            type="button"
-            id="open-config-btn"
-            onClick={() => navigateTo('config')}
-            title="Configurações da Campanha"
-            className="flex items-center gap-1.5 rounded-full border border-border/80 bg-card/90 px-3 py-1.5 text-[11px] font-bold text-foreground shadow-md backdrop-blur-xs transition-all hover:bg-card hover:shadow-lg active:scale-95"
-          >
-            <Settings className="h-3.5 w-3.5 text-brand" />
-            <span className="hidden sm:inline">Configurações</span>
-          </button>
-        ) : (
+      {/* Botão de retorno quando na página de configurações */}
+      {currentPage === 'config' && (
+        <div className="fixed right-3 top-3 z-50">
           <button
             type="button"
             id="back-to-campaign-btn"
@@ -79,8 +68,8 @@ export default function App() {
             <ArrowLeft className="h-3.5 w-3.5" />
             Voltar à Campanha
           </button>
-        )}
-      </div>
+        </div>
+      )}
 
       {currentPage === 'config' ? (
         <ConfigPage onBackToCampaign={() => navigateTo('campaign')} />
